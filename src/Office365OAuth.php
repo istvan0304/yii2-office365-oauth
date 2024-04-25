@@ -4,28 +4,26 @@ namespace istvan0304\yii2office365oauth\src;
 
 use yii\authclient\OAuth2;
 
+/**
+ * class Office365OAuth
+ */
 class Office365OAuth extends OAuth2
 {
     public $authUrl;
-
     public $tokenUrl;
-
     public $apiBaseUrl;
-
     public $returnUrl;
-
     public $scope;
-
     public $name;
-
     public $title;
-
     public $prompt;
-
     public $login_hint;
-
     public $resource;
+    public $selectParams;
 
+    /**
+     * @return void
+     */
     public function init()
     {
         parent::init();
@@ -39,6 +37,10 @@ class Office365OAuth extends OAuth2
         return $this->returnUrl;
     }
 
+    /**
+     * @param array $params
+     * @return string
+     */
     public function buildAuthUrl(array $params = [])
     {
         $defaultParams = [
@@ -62,11 +64,17 @@ class Office365OAuth extends OAuth2
         return $this->composeUrl($this->authUrl, array_merge($defaultParams, $params));
     }
 
+    /**
+     * @return string
+     */
     protected function defaultName()
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     protected function defaultTitle()
     {
         return $this->title;
@@ -75,14 +83,19 @@ class Office365OAuth extends OAuth2
     /**
      * For popup mode
      */
-//    protected function defaultViewOptions()
-//    {
-//        return [
-//            'popupWidth' => 800,
-//            'popupHeight' => 500,
-//        ];
-//    }
+    protected function defaultViewOptions()
+    {
+        return [
+            'popupWidth' => 800,
+            'popupHeight' => 500,
+        ];
+    }
 
+    /**
+     * @param $request
+     * @param $accessToken
+     * @return void
+     */
     public function applyAccessTokenToRequest($request, $accessToken)
     {
         /*$data = $request->getData();
@@ -97,9 +110,15 @@ class Office365OAuth extends OAuth2
      */
     protected function initUserAttributes()
     {
-        return $this->api('me?$select=id,displayName,userPrincipalName,mail,photo,mobilePhone,preferredLanguage,onPremisesExtensionAttributes', 'GET',
+        $apiSubUrl = 'me';
+
+        if($this->selectParams != null){
+            $apiSubUrl .= '?$select=' . $this->selectParams;
+        }
+
+        return $this->api($apiSubUrl, 'GET',
             NULL,
-            ['Authorization' => 'Bearer '.$this->getAccessToken()->getToken()] //HEADER
+            ['Authorization' => 'Bearer '.$this->getAccessToken()->getToken()]
         );
     }
 }
