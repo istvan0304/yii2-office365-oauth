@@ -1,0 +1,22 @@
+{
+    "name": "istvan0304/yii2-office365-oauth",
+    "description": "Office 365 login for yii2 app",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "istvan0304",
+            "email": "sz.istvan0304@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "yiisoft/yii2": "~2.0.0",
+        "yiisoft/yii2-authclient": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "istvan0304\\yii2office365oauth\\": ""
+        }
+    }
+}
