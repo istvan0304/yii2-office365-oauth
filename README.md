@@ -50,29 +50,28 @@ Usage
 
 - Set Environment variables
 
-- Setup http client
+  - Setup http client
 
-        return [
-          'components' => [
-              'authClientCollection' => [
-                'class' => 'yii\authclient\Collection',
-            'clients' => [
-                'o365' => [
-                    'class' => 'istvan0304\yii2office365oauth\src\Office365OAuth',
-                    'clientId' => getenv('AUTH_CLIENT_ID'),
-                    'clientSecret' => getenv('AUTH_CLIENT_SECRET'),
-                    'authUrl' => getenv('AUTH_URL'),
-                    'tokenUrl' => getenv('AUTH_TOKEN_URL'),
-                    'apiBaseUrl' => getenv('GRAPH_URL'),
-                    'returnUrl' => getenv('AUTH_RETURN_URL'),
-                    'scope' => getenv('AUTH_SCOPE'),
-                    'resource' => getenv('AUTH_RESOURCE_URL'),
-                    'title' => '5464',
-          //                    'prompt' => '',
-          //                    'login_hint' => '',
+          return [
+            'components' => [
+                'authClientCollection' => [
+                  'class' => 'yii\authclient\Collection',
+              'clients' => [
+                  'o365' => [
+                      'class' => 'istvan0304\yii2office365oauth\src\Office365OAuth',
+                      'clientId' => getenv('AUTH_CLIENT_ID'),
+                      'clientSecret' => getenv('AUTH_CLIENT_SECRET'),
+                      'authUrl' => getenv('AUTH_URL'),
+                      'tokenUrl' => getenv('AUTH_TOKEN_URL'),
+                      'apiBaseUrl' => getenv('GRAPH_URL'),
+                      'returnUrl' => getenv('AUTH_RETURN_URL'),
+                      'scope' => getenv('AUTH_SCOPE'),
+                      'resource' => getenv('AUTH_RESOURCE_URL'),
+                      'title' => 'Title',
+                //    'login_hint' => '',
+                    ],
+                ],
+                //...
               ],
-          ],
-              //...
-            ],
-          // ...
-      ];
+            // ...
+        ];

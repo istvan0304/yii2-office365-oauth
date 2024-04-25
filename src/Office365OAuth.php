@@ -16,7 +16,6 @@ class Office365OAuth extends OAuth2
     public $scope;
     public $name;
     public $title;
-    public $prompt;
     public $login_hint;
     public $resource;
     public $selectParams;
@@ -47,7 +46,6 @@ class Office365OAuth extends OAuth2
             'client_id' => $this->clientId,
             'response_type' => 'code',
             'redirect_uri' => $this->returnUrl,
-            'prompt' => $this->prompt,
             'login_hint' => $this->login_hint,
             'resource' => $this->resource,
         ];
