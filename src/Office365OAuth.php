@@ -29,17 +29,6 @@ class Office365OAuth extends OAuth2
     public function init()
     {
         parent::init();
-        // initialize the module with the config uration loaded from config.php
-        \Yii::configure($this, require(__DIR__ . '/config.php'));
-        \Yii::configure($this, [
-            'authUrl' => getenv('AUTH_URL'),
-            'tokenUrl' => getenv('AUTH_TOKEN_URL'),
-            'apiBaseUrl' => getenv('GRAPH_URL'),
-            'returnUrl' => getenv('AUTH_RETURN_URL'),
-            'scope' => getenv('AUTH_SCOPE'),
-            'resource' => getenv('AUTH_RESOURCE_URL'),
-        ]);
-        var_dump($this);
     }
 
     /**
