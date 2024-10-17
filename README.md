@@ -69,9 +69,11 @@ Usage
                       'resource' => getenv('AUTH_RESOURCE_URL'),
                       'title' => 'Title',
                 //    'login_hint' => '',
-                    ],
+                      'selectParams' => 'id,displayName,userPrincipalName,mail,photo,mobilePhone,preferredLanguage,onPremisesExtensionAttributes',
+                      //'proxy' => getenv('AUTH_PROXY_URL'),
+                      ],
+                  ],
+                  //...
                 ],
-                //...
-              ],
-            // ...
-        ];
+              // ...
+          ];
